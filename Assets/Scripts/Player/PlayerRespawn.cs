@@ -15,19 +15,20 @@ public class PlayerRespawn : MonoBehaviour
     }
 
     public void RespawnCheck()
+{
+    Debug.Log("Respawn Check - Checkpoint: " + (currentCheckpoint != null ? currentCheckpoint.position.ToString() : "NULL"));
+
+    if (currentCheckpoint == null) 
     {
-        if (currentCheckpoint == null) 
-        {
-            uiManager.GameOver();
-            return;
-        }
-
-        playerHealth.Respawn(); //Restore player health and reset animation
-        transform.position = currentCheckpoint.position; //Move player to checkpoint location
-
-        //Move the camera to the checkpoint's room
-        Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+        uiManager.GameOver();
+        return;
     }
+
+    playerHealth.Respawn();
+    transform.position = currentCheckpoint.position;
+    Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Checkpoint")

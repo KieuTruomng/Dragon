@@ -63,6 +63,7 @@ public class RangedEnemy : MonoBehaviour
         int fireballIndex = FindFireball();
         fireballs[fireballIndex].transform.position = firepoint.position; // Đặt vị trí bắn
         fireballs[fireballIndex].GetComponent<EnemyProjectile>().ActivateProjectile(); // Kích hoạt viên đạn
+        
     }
 
     private int FindFireball()

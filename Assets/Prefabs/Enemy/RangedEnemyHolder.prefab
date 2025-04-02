@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
-  m_Color: {r: 1, g: 0.7098039, b: 0.6999999, a: 1}
+  m_Color: {r: 1, g: 0.41114014, b: 0.40566033, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -405,9 +405,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFireball
       objectReference: {fileID: 0}
-    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
-      propertyPath: m_Layer
-      value: 14
+    - target: {fileID: 340752786235820319, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -551,6 +551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFireball (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -621,6 +625,10 @@ PrefabInstance:
     - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
       propertyPath: m_Name
       value: EnemyFireball (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -693,6 +701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFireball (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -763,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
       propertyPath: m_Name
       value: EnemyFireball (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -835,6 +851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFireball (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -905,6 +925,10 @@ PrefabInstance:
     - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
       propertyPath: m_Name
       value: EnemyFireball (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -977,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFireball (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1047,6 +1075,10 @@ PrefabInstance:
     - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
       propertyPath: m_Name
       value: EnemyFireball (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 340752786235820314, guid: 689d445c1942e154782ec497d4b18c51, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

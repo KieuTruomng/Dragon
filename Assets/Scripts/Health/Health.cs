@@ -47,7 +47,6 @@ public class Health : MonoBehaviour
                 foreach (Behaviour component in components)
                     component.enabled = false; // Vô hiệu hóa các thành phần khi chết
 
-                anim.SetBool("grounded", true);
                 anim.SetTrigger("die"); // Chạy animation chết
 
                 dead = true;
@@ -83,14 +82,18 @@ public class Health : MonoBehaviour
 
     // Hồi sinh nhân vật
     public void Respawn()
-    {
-        AddHealth(startingHealth); // Hồi đầy máu
-        anim.ResetTrigger("die");
-        anim.Play("Idle"); // Trở lại trạng thái Idle
-        StartCoroutine(Invunerability()); // Kích hoạt iFrames khi hồi sinh
-        dead = false;
+{
+    if (!dead) return; // Nếu chưa chết thì không cần hồi sinh
 
-        foreach (Behaviour component in components)
-            component.enabled = true; // Kích hoạt lại các thành phần đã bị vô hiệu hóa
-    }
+    dead = false; // Đánh dấu nhân vật không còn chết
+    AddHealth(startingHealth);
+    anim.ResetTrigger("die");
+    anim.Play("Idle");
+
+    foreach (Behaviour component in components)
+        component.enabled = true;
+
+    StartCoroutine(Invunerability()); // Kích hoạt trạng thái bất tử tạm thời
+}
+
 }
