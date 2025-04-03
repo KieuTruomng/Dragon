@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth; // Máu ban đầu
     public float currentHealth { get; private set; } // Máu hiện tại
     private Animator anim;
-    private bool dead;
+    public bool dead { get; private set; } // Cho phép đọc nhưng không cho phép ghi từ bên ngoài
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration; // Thời gian bất tử sau khi bị đánh
@@ -21,14 +21,20 @@ public class Health : MonoBehaviour
     [Header("Death Sound")]
     [SerializeField] private AudioClip deathSound; // Âm thanh khi chết
     [SerializeField] private AudioClip hurtSound; // Âm thanh khi bị thương
+    
+    private Rigidbody2D rb;
+
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>(); // Lấy Rigidbody2D
+
     }
 
+    [System.Obsolete]
     public void TakeDamage(float _damage)
     {
         if (invulnerable) return; // Nếu đang bất tử, bỏ qua sát thương
@@ -42,16 +48,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            if (!dead)
-            {
-                foreach (Behaviour component in components)
-                    component.enabled = false; // Vô hiệu hóa các thành phần khi chết
-
-                anim.SetTrigger("die"); // Chạy animation chết
-
-                dead = true;
-                SoundManager.instance.PlaySound(deathSound); // Phát âm thanh chết
-            }
+            Die();
         }
     }
 
@@ -94,6 +91,24 @@ public class Health : MonoBehaviour
         component.enabled = true;
 
     StartCoroutine(Invunerability()); // Kích hoạt trạng thái bất tử tạm thời
+}
+
+    [System.Obsolete]
+    private void Die()
+{
+    if (dead) return; // Nếu đã chết thì không làm gì nữa
+
+    dead = true;
+
+    // Tắt tất cả thành phần ngoại trừ Rigidbody2D để tránh lỗi rơi tự do
+    foreach (Behaviour component in components)
+        component.enabled = false;
+
+    rb.velocity = Vector2.zero; // Dừng di chuyển khi chết
+    rb.gravityScale = 1; // Ngăn nhân vật tiếp tục rơi
+
+    anim.SetTrigger("die"); // Chạy animation chết
+    SoundManager.instance.PlaySound(deathSound);
 }
 
 }

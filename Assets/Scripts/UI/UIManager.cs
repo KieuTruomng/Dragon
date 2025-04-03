@@ -132,16 +132,23 @@ public class UIManager : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
+            PlayerPrefs.SetInt("currentLevel", nextSceneIndex); // Lưu level hiện tại
+            PlayerPrefs.Save(); // Đảm bảo dữ liệu được lưu
+
             SceneManager.LoadScene(nextSceneIndex);
             SoundManager.instance.PlayMusic(); 
         }
         else
         {
             Debug.Log("Đã hoàn thành tất cả level!");
+            PlayerPrefs.SetInt("currentLevel", 1); // Reset về level 1 nếu hoàn thành game
+            PlayerPrefs.Save();
+
             SceneManager.LoadScene(0); // Quay lại menu chính
             SoundManager.instance.PlayMusic(); 
         }
     }
+
 
     // Mở màn hình chọn level trong menu chính
     public void OpenSelectLevel()
@@ -155,12 +162,12 @@ public class UIManager : MonoBehaviour
     // Điều chỉnh âm lượng hiệu ứng âm thanh
     public void SoundVolume()
     {
-        SoundManager.instance.ChangeSoundVolume(0.1f);
+        SoundManager.instance.ChangeSoundVolume(0.2f);
     }
 
     // Điều chỉnh âm lượng nhạc nền
     public void MusicVolume()
     {
-        SoundManager.instance.ChangeMusicVolume(0.1f);
+        SoundManager.instance.ChangeMusicVolume(0.2f);
     }
 }

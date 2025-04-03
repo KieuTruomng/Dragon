@@ -32,4 +32,9 @@ public class LevelDisplay : MonoBehaviour
 
         levelText.gameObject.SetActive(false); // Ẩn text sau khi fade xong
     }
+    private void OnEnable()
+{
+    int levelIndex = PlayerPrefs.GetInt("currentLevel", 1);
+    levelText.text = "Level " + levelIndex;
+}
 }

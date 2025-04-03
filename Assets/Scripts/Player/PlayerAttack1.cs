@@ -10,18 +10,20 @@ public class PlayerAttack1 : MonoBehaviour
     private Animator anim;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity; // Bộ đếm thời gian hồi chiêu
+    private Health health; // Tham chiếu đến Health
 
     private void Awake()
     {
         anim = GetComponent<Animator>(); // Lấy Animator của nhân vật
         playerMovement = GetComponent<PlayerMovement>(); // Lấy PlayerMovement
+        health = GetComponent<Health>();
     }
 
     private void Update()
     {
         // Kiểm tra nếu nhấn chuột trái, hết thời gian hồi chiêu, có thể tấn công và game chưa dừng
         if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.canAttack()
-            && Time.timeScale > 0)
+            && Time.timeScale > 0 && !health.dead)
             Attack();
 
         cooldownTimer += Time.deltaTime; // Tăng thời gian hồi chiêu

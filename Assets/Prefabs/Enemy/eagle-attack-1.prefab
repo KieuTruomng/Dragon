@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9116509267182931466}
   - component: {fileID: 6245742265490244590}
   - component: {fileID: 1814810946940076865}
-  - component: {fileID: 6836522270623462153}
   - component: {fileID: 8810105234039082122}
   - component: {fileID: 1381681085595912311}
   - component: {fileID: 2284886927465546285}
@@ -132,24 +131,6 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
---- !u!114 &6836522270623462153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285885013453979690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e26f534ea637349a0bc6f44b578ba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 3
-  iFramesDuration: 0
-  numberOfFlashes: 0
-  components: []
-  deathSound: {fileID: 0}
-  hurtSound: {fileID: 0}
 --- !u!114 &8810105234039082122
 MonoBehaviour:
   m_ObjectHideFlags: 0

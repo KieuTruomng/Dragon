@@ -14,10 +14,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AudioClip meleeAttackSound;
     private Animator anim;
     private bool canAttack = true;
+    private Health health; // Tham chiếu đến Health
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        health = GetComponent<Health>();
         if (attackPoint == null)
         {
             Debug.LogError("Attack Point is not assigned in PlayerAttack script!");
@@ -26,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && canAttack)
+        if (Input.GetKeyDown(KeyCode.F) && canAttack && !health.dead)
         {
             StartCoroutine(PerformMeleeAttack());
         }

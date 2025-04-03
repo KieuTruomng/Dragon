@@ -26,7 +26,7 @@ public class LoadingManager : MonoBehaviour
         Debug.Log($"Attempting to load level: {levelIndex}"); // In ra console để debug
 
         // Kiểm tra nếu levelIndex hợp lệ (trong phạm vi số lượng scene có sẵn)
-        if (levelIndex < 0 || levelIndex >= SceneManager.sceneCountInBuildSettings)
+        if (SceneUtility.GetScenePathByBuildIndex(levelIndex) == "")
         {
             Debug.LogError($"Invalid Level Index: {levelIndex}"); // Báo lỗi nếu index không hợp lệ
             return;
@@ -37,6 +37,8 @@ public class LoadingManager : MonoBehaviour
         // Lưu lại level hiện tại vào PlayerPrefs để có thể tải lại sau
         PlayerPrefs.SetInt("currentLevel", levelIndex);
         PlayerPrefs.Save();
+        Debug.Log("Saving Level Index: " + levelIndex);
+
 
         // Chuyển sang màn chơi mới
         SceneManager.LoadScene(levelIndex);

@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Âm thanh")]
     [SerializeField] private AudioClip jumpSound; // Âm thanh nhảy
-
+    private Health health; // Tham chiếu đến Health
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        health = GetComponent<Health>();
     }
 
     [System.Obsolete]
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("grounded", isGrounded()); // Cập nhật animation nhảy/rơi
 
         // Nhảy khi nhấn phím Space
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !health.dead)
             Jump();
 
         // Điều chỉnh độ cao của bước nhảy (Nhả phím Space sẽ làm chậm tốc độ lên cao)
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
 
         // Kiểm tra nếu nhân vật đang bám vào tường
-        if (onWall())
+        if (onWall() && !health.dead)
         {
             body.gravityScale = 0; // Tắt trọng lực để giữ nhân vật bám tường
             body.velocity = Vector2.zero; // Dừng di chuyển rơi xuống
